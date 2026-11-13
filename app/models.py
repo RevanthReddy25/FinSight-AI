@@ -1,38 +1,55 @@
 from decimal import Decimal
 
+from sqlalchemy import CheckConstraint, Integer, Numeric, String
+from sqlalchemy.orm import Mapped, mapped_column
 
-class FinancialProject:
+from app.database import Base
+
+
+class FinancialProject(Base):
     """
-    Represents the financial information of a business project.
+    SQLAlchemy model representing a business project's
+    financial information.
     """
 
-    def __init__(
-        self,
-        project_id: int,
-        project_name: str,
-        client_name: str,
-        budget: Decimal,
-        revenue: Decimal,
-        expenditure: Decimal,
-    ) -> None:
+    __tablename__ = "financial_projects"
 
-        # Validate project information
-        if project_id <= 0:
-            raise ValueError("Project ID must be positive.")
+    __table_args__ = (
+        CheckConstraint("budget >= 0", name="ck_budget_nonnegative"),
+        CheckConstraint("revenue >= 0", name="ck_revenue_nonnegative"),
+        CheckConstraint(
+            "expenditure >= 0",
+            name="ck_expenditure_nonnegative"
+        ),
+    )
 
-        if not project_name.strip():
-            raise ValueError("Project name cannot be empty.")
+    project_id: Mapped[int] = mapped_column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
 
-        if not client_name.strip():
-            raise ValueError("Client name cannot be empty.")
+    project_name: Mapped[str] = mapped_column(
+        String(150),
+        nullable=False
+    )
 
-        if budget < 0 or revenue < 0 or expenditure < 0:
-            raise ValueError("Financial amounts cannot be negative.")
+    client_name: Mapped[str] = mapped_column(
+        String(150),
+        nullable=False
+    )
 
-        # Store project information
-        self.project_id = project_id
-        self.project_name = project_name
-        self.client_name = client_name
-        self.budget = budget
-        self.revenue = revenue
-        self.expenditure = expenditure
+    budget: Mapped[Decimal] = mapped_column(
+        Numeric(14, 2),
+        nullable=False
+    )
+
+    revenue: Mapped[Decimal] = mapped_column(
+        Numeric(14, 2),
+        nullable=False
+    )
+
+    expenditure: Mapped[Decimal] = mapped_column(
+        Numeric(14, 2),
+        nullable=False
+    )
