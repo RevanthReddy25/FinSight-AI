@@ -1,0 +1,11 @@
+project_id,vendor_id,vendor_name,category_id,description,amount,transaction_date,transaction_type,status
+1,,Microsoft,1,Software License Subscription,25000.00,2026-11-01,EXPENSE,APPROVED
+1,2,AWS,2,Cloud Infrastructure Services,45000.00,2026-11-02,EXPENSE,PAID
+1,,Google Cloud,2,Cloud Hosting Services,15000.00,2026-11-03,EXPENSE,PENDING
+1,,Microsoft,1,Additional Software Licenses,12000.00,2026-11-04,EXPENSE,APPROVED
+1,2,AWS,2,Cloud Storage Charges,8500.00,2026-11-05,EXPENSE,PAID
+1,,OpenAI,3,AI API Subscription,18000.00,2026-11-06,EXPENSE,PENDING
+1,,Google Cloud,2,Additional Cloud Services,7500.00,2026-11-07,EXPENSE,APPROVED
+1,,Adobe,1,Creative Software Subscription,6500.00,2026-11-08,EXPENSE,PAID
+1,2,AWS,2,Cloud Computing Charges,11000.00,2026-11-09,EXPENSE,APPROVED
+1,,OpenAI,3,AI API Usage Charges,4200.00,2026-11-10,EXPENSE,PENDING
