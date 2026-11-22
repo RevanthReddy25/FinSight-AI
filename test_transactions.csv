@@ -1,0 +1,6 @@
+project_id,vendor_id,category_id,description,amount,transaction_date,transaction_type,status
+1,2,3,Office Rent,25000,2026-01-15,EXPENSE,APPROVED
+2,1,3,Software License,-500,2026-01-16,EXPENSE,APPROVED
+3,3,2,,3000,2026-01-17,EXPENSE,APPROVED
+1,3,2,Office Rent,25000,2026-01-15,EXPENSE,APPROVED
+2,3,2,Software License,-500,2026-01-16,EXPENSE,APPROVED
